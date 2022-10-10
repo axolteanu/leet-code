@@ -1,6 +1,3 @@
- // 8. String to Integer (atoi)
- // https://leetcode.com/problems/string-to-integer-atoi/
-
 var myAtoi = function(s){
   if(s.length > 200)
     return 0;
