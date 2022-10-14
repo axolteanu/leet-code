@@ -40,15 +40,7 @@ class Solution {
                 break;
         }
 
-        String binNumStr = "";
-        binNumStr = strNumToStrBin(numberStr);
-        if(sign == 1 && binNumStr.length() > 31)
-            return Integer.MAX_VALUE;
-        if(sign == -1 && (binNumStr.length() + 1) > 32) {
-            return Integer.MIN_VALUE;
-        }
-
-        return Integer.parseInt(numberStr) * sign;
+        return (int) (Double.parseDouble(numberStr) * sign);
     }
 
     private String strNumToStrBin(String strNum){
