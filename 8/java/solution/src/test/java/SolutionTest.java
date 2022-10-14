@@ -78,6 +78,12 @@ class SolutionTest {
     }
 
     @Test
+    public void ifNothingFollowsSignThenYieldIsZero(){
+        assertEquals(0, solution.myAtoi("+"));
+        assertEquals(0, solution.myAtoi("-"));
+    }
+
+    @Test
     public void testExecutionTime() {
         StopWatch sw = new StopWatch();
         sw.start();
