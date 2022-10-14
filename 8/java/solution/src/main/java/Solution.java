@@ -42,25 +42,4 @@ class Solution {
 
         return (int) (Double.parseDouble(numberStr) * sign);
     }
-
-    private String strNumToStrBin(String strNum){
-        String result = "";
-        while (!strNum.isEmpty()) {
-            String strQuotient = "";
-            short dividend = 0;
-            for (int i = 0; i < strNum.length(); i++) {
-                dividend = (short) ((dividend * 10) + (short) (strNum.charAt(i) - '0'));
-                short quotient = 0;
-                while (dividend >= 2) {
-                    dividend -= 2;
-                    quotient++;
-                }
-                if(!(strQuotient.isEmpty() && quotient == 0))
-                    strQuotient += quotient;
-            }
-            result = dividend + result;
-            strNum = strQuotient;
-        }
-        return result;
-    }
 }
