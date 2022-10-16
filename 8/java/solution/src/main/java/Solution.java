@@ -2,10 +2,9 @@ import org.apache.commons.lang3.time.StopWatch;
 
 class Solution {
     public int myAtoi(String s) {
-        int nIndex = -1;
         int sign = 0;
+        int startIndex = -1;
         int nSize = 0;
-        int startIndex = 0;
 
         if(s.length() == 0 || s.length() > 200)
             return 0;
@@ -24,10 +23,9 @@ class Solution {
                     else
                         break;
                 }else {
-                    if (c >= '0' && c <= '9') {
+                    if (charIsDigit(c)) {
                         nSize++;
                         startIndex = i;
-                        nIndex = i + 1;
                     }
                     break;
                 }
@@ -35,15 +33,15 @@ class Solution {
                 break;
         }
 
-        if(nIndex < 0)
+        if(startIndex < 0)
             return 0;
 
         if(sign == 0)
             sign = 1;
 
-        for(int i = nIndex; i < s.length(); i++){
+        for(int i = startIndex + 1; i < s.length(); i++){
             char c = s.charAt(i);
-            if(c >= '0' && c <= '9')
+            if(charIsDigit(c))
                 nSize++;
             else
                 break;
@@ -52,5 +50,9 @@ class Solution {
         String numberStr = s.substring(startIndex, startIndex + nSize);
 
         return (int) (Double.parseDouble(numberStr) * sign);
+    }
+
+    private boolean charIsDigit(char c){
+        return c >= '0' && c <= '9';
     }
 }
