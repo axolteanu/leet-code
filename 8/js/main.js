@@ -5,7 +5,7 @@ var myAtoi = function(s){
   let n = 0;
   let sign = 1;
   let startIndex = -1;
-  for(let i = 0; i < s.length ; i++){
+  for(let i = 0; i < s.length; i++){
     if(s[i] == ' ')
       continue
     else if(s[i] == '-'){
