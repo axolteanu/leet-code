@@ -20,6 +20,7 @@ class SolutionTest {
 
   @Test
   public void numberPrecededByWhitespacesYieldsNumber() {
+    assertEquals(5, solution.myAtoi(" 5"));
     assertEquals(42, solution.myAtoi(" 42"));
     assertEquals(81, solution.myAtoi("  81"));
   }
