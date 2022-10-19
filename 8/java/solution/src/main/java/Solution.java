@@ -20,8 +20,7 @@ class Solution {
           if(sign == 0)
             sign = 1;
         }
-      }
-      else if((c == ' ' || c == '+' || c == '-') && sign == 0) {
+      }else if((c == ' ' || c == '+' || c == '-') && sign == 0) {
         if (hasTrailingZero)
           break;
         if(c == '+')
