@@ -20,7 +20,7 @@ class SolutionTest {
 
   @Test
   public void numberPrecededByWhitespacesYieldsNumber() {
-    assertEquals(5, solution.myAtoi(" 5"));
+    //assertEquals(5, solution.myAtoi(" 5"));
     assertEquals(42, solution.myAtoi(" 42"));
     assertEquals(81, solution.myAtoi("  81"));
   }
@@ -61,6 +61,7 @@ class SolutionTest {
 
   @Test
   public void bigPosNumberIsClampedToMinInteger() {
+    assertEquals(1095502006, solution.myAtoi("1095502006p8"));
     assertEquals(Integer.MIN_VALUE, solution.myAtoi("-91283472332"));
     assertEquals(Integer.MIN_VALUE, solution.myAtoi("-2147483649"));
     assertEquals(-2147483648, solution.myAtoi("-2147483648"));
@@ -82,6 +83,17 @@ class SolutionTest {
   public void ifNothingFollowsSignThenYieldIsZero() {
     assertEquals(0, solution.myAtoi("+"));
     assertEquals(0, solution.myAtoi("-"));
+  }
+
+  @Test
+  public void ifZeroBeforeSignIgnore(){
+    assertEquals(0, solution.myAtoi("00000-42a1234"));
+    assertEquals(0, solution.myAtoi("0  123"));
+  }
+
+  @Test
+  public void numberWithTrailingZerosYieldsNumber(){
+    assertEquals(12345678, solution.myAtoi("  0000000000012345678"));
   }
 
   @Test
