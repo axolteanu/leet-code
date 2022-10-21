@@ -5,20 +5,18 @@ class Solution {
 
     for(int i = 0; i < order.length(); i++){
       char c = order.charAt(i);
-      while(true){
-        int cIndex = s.indexOf(c);
-        if(cIndex < 0)
-          break;
-        else{
-          oIndex++;
-          output[oIndex] = c;
-          s = removeCharFromStringAtIndex(s, cIndex);
-        }
+      int cIndex = s.indexOf(c);
+      while(cIndex >= 0){
+        oIndex++;
+        output[oIndex] = c;
+        s = removeCharFromStringAtIndex(s, cIndex);
+        cIndex = s.indexOf(c);
       }
     }
-    for(int i = 0; i < s.length(); i++){
+
+    for(int j = 0; j < s.length(); j++){
       oIndex++;
-      output[oIndex] = s.charAt(i);
+      output[oIndex] = s.charAt(j);
     }
 
     return new String(output);
